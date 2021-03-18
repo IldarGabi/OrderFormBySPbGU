@@ -26,6 +26,9 @@ public class OrderFormCryptoVeche {
     @BeforeEach
     void setUp() {
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
         driver = new ChromeDriver(options);
     }
 
@@ -52,6 +55,8 @@ public class OrderFormCryptoVeche {
         String checkText = driver.findElement(By.cssSelector("[id=\"entrance\"]")).getText();
         assertEquals(checkText, "Забыли пароль?");
     }
+
+
 
     //    Задача №4
     @Test
